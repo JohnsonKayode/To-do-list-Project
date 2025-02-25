@@ -112,7 +112,7 @@ li{
     }
 
     li{
-        list-style-type: none;
+        list-style-type: disc;
         width: 830px;
         line-height: 1.6;
         /* color: white; */
