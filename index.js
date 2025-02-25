@@ -1,50 +1,31 @@
+alert(`this is an alert `);
 
-// alert(`this is an alert `)
+let buttonToAddList = document.querySelector("#addButton");
+let userInput = document.getElementById("input");
+let orderedList = document.querySelector("ol");
 
- class NewList {
-    constructor(){
-        this.userText = document.getElementById('input');
-        const addedButton = document.getElementById('addButton');
-        addedButton.addEventListener('click', () => {
-            let value = this.userText.value;
-            if(value === ""){
-                alert('Please enter a valid text:');
-            } 
-        });
-        return this.userText;
-    }
+buttonToAddList.addEventListener("click", () => {
+  let list = document.createElement("li");
+  let image = document.createElement("img");
+  let divList = document.createElement("div");
+  divList.className = "list-item";
+  image.src = "./image/delete.png";
 
-    // addText(input){
-    //     // let input = 'favourite food'
-    //     let addedButton = document.getElementById("addButton");
-    //     addedButton.addEventListener('click', () => {
-    //         let clonedText = document.querySelector('input');
-    //         clonedText.innerHTML = input.value;
-    //         this.userText.appendChild(clonedText); 
-    //         let clonedImage = document.createElement('img');
-    //         clonedImage.innerHTML = '<img src="delete.png" alt="delete">';
-    //         this.userText.appendChild(clonedImage); 
-    //         console.log(clonedText);
-    //     });
+  if (userInput.value === "") {
+    alert("Please enter a task");
+  } else {
+    list.innerHTML = userInput.value;
+    orderedList.appendChild(divList);
+    divList.appendChild(list);
+    divList.appendChild(image);
 
-        
-    //     return this.userText;
-    // }
+    console.log(divList);
 
-    // removeText(){
-    //     addEventListener('click', () => {
-    //         return this.userText;
-    //     });
-    //     return this.userText;
-    // }
- }
+    image.addEventListener("click", () => {
+      orderedList.removeChild((divList));
+      // divList.removeChild(image);
+    });
 
-let input = document.getElementById('input');
-let deleteButton = document.getElementById('deleteText');
-let listDiv = document.querySelector('.list-item')
-let addedButton = document.getElementById('addButton');
-
-const addedList = new NewList();
-
-addedList
-
+    userInput.value = "";
+  }
+});
