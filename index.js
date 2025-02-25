@@ -1,4 +1,4 @@
-alert(`this is an alert `);
+// alert(`this is an alert `);
 
 let buttonToAddList = document.querySelector("#addButton");
 let userInput = document.getElementById("input");
